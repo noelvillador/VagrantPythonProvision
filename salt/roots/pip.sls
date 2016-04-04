@@ -1,6 +1,11 @@
-pip_dependency:
+numpy:
   pip.installed:
-    - names:
+    - name:
       - numpy
-      - scipy
+
+scipy:
+  pip.installed:
+    - name:
       - scikit-learn
+      - requre:
+      - pkg: scipy
