@@ -3,6 +3,6 @@ python-pkgs:
     - installed
     - names:
       - python
-      - python-dev
+      - python-devel
       - python-pip
       - python-virtualenv

@@ -1,3 +1,2 @@
 file_client: local
 log_level: debug
-log_file: file:///dev/log
