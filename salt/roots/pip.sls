@@ -1,19 +1,30 @@
-numpy:
-  pip.installed:
-    - name:
-      - numpy
+#numpy:
+#  pip.installed:
+#    - name: numpy
+#    - require:
+#      - pkg: python-pip
 
-scipy:
-  pip.installed:
-    - name:
-      - scipy
+#scipy:
+#  pip.installed
+#    - name: scipy
+#    - require:
+#      - pkg: python-pip
 
-scikit-learn:
+#scikit-learn:
+#  pip.installed
+#    - name: scikit-learn
+#    - require:
+#      - pkg: python-pip
+#      - pip: scipy
+
+pip:
+  {% if grains['os'] == 'CentOS' %}
   pip.installed:
-    - name:
+    - names:
       - scikit-learn
-
-backports.ssl_match_hostname
-  pip.instsalled:
-    - name:
-      - backports.ssl_match_hostname
+      - numpy
+      - scipy
+  {% elif grains['os'] == 'Ubuntu' %}
+  cmd.run: 
+    - name: 'pip install numpy scipy scikit-learn'
+  {% endif %}
